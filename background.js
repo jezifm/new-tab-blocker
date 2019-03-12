@@ -1,8 +1,3 @@
-function isBlacklist(url, bad_domains) {
-  let host = extractHostname(url);
-  return bad_domains.includes(host);
-}
-
 chrome.tabs.onCreated.addListener(function(tab) {
   if (tab.url === "chrome://newtab/") return;
 

@@ -17,3 +17,9 @@ function extractHostname(url) {
     hostname = hostname.split('?')[0];
     return hostname;
 }
+
+function isBlacklist(url, bad_domains) {
+  let host = extractHostname(url);
+  return bad_domains.includes(host);
+}
+
