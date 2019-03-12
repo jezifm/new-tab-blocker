@@ -14,7 +14,7 @@
       "helper.js",
       "background.js"
     ],
-    "persistent": true
+    "persistent": false
   },
   "page_action": {
     "default_popup": "popup.html",
