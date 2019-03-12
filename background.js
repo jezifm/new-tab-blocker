@@ -1,23 +1,9 @@
-function addRuleAllowAll() {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([{
-      conditions: [
-        new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: {urlMatches: '.'},
-        })
-      ],
-      actions: [new chrome.declarativeContent.ShowPageAction()]
-    }]);
-  });
-}
-
 function isBlacklist(url, bad_domains) {
   let host = extractHostname(url);
   return bad_domains.includes(host);
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-  addRuleAllowAll();
 
   chrome.tabs.onCreated.addListener(function(tab) {
     if (tab.url === "chrome://newtab/") return;
